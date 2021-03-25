@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>{% block title %} {% endblock title %}</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+	<link rel="stylesheet" href="/static/css/prism.css">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+	<link id="theme-style" rel="stylesheet" href="/static/css/theme-3.css">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head> 
+
+{% block css %} {% endblock css %}
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="/">Coders Arena</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="/static/images/logo.png" alt="image" >			
+					
+					<div class="bio mb-3">Hello geeks, welcome to <strong>Coders Arena</strong>. Here you can learn everything about programming.</a></div><!--//bio-->
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="https://twitter.com/intent/follow?original_referer=https://github.com/SamwitAdhikary&screen_name=SamwitAdhikary" target="_blank"><i class="fab fa-twitter fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://linkedin.com/in/samwitadhikary" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.facebook.com/samwit.adhikary" target="_blank"><i class="fab fa-facebook-f fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.instagram.com/samwit_adhikary" target="_blank"><i class="fab fa-instagram fa-fw"></i></a></li>
+			            <!-- <li class="list-inline-item"><a href="mailto:samwitadhikary2@gmail.com" target="_blank"><i class="fa fa-envelope fa-fw"></i></a></li> -->
+			            <!-- <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCexNaGY79fX1JatLDzp1MAw" target="_blank"><i class="fab fa-youtube fa-fw"></i></a></li> -->
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item {% block homeactive %}{% endblock homeactive%}">
+					    <a class="nav-link" href="/"><i class="fas fa-home fa-fw mr-2"></i>Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item {% block blogactive %}{% endblock blogactive%}">
+					    <a class="nav-link" href="/blog"><i class="fas fa-bookmark fa-fw mr-2"></i>Blog</a>
+					</li>
+					<li class="nav-item {% block contactactive %}{% endblock contactactive%}">
+					    <a class="nav-link" href="/contact"><i class="fas fa-user fa-fw mr-2"></i>Contact</a>
+					</li>
+				</ul>
+				
+				<div class="my-2 my-md-3">
+				    <a class="btn btn-primary" href="https://github.com/SamwitAdhikary" target="_blank">Follow on GitHub</a>
+				</div>
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+	    {% block body %} {% endblock body %}
+	    	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Made with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="https://samwitadhikary.github.io/my-profile" target="_blank">Samwit Adhikary</a></small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+
+    
+       
+    <!-- Javascript -->          
+	<script src="/static/js/prism.js"></script>
+    <script src="/static/plugins/jquery-3.3.1.min.js"></script>
+    <script src="/static/plugins/popper.min.js"></script> 
+    <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script> 
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <!-- <script src="/static/js/demo/style-switcher.js"></script>      -->
+    
+
+</body>
+</html> 

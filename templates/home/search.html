@@ -1,0 +1,114 @@
+{% extends 'basic.html' %}
+
+{% block title %} Search Results | Coding Arena Bangla {% endblock title %}
+
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block body %}
+
+<section class="cta-section theme-bg-light py-5">
+    <div class="container text-center">
+        <h2 class="heading">Coding Arena - A Blog For Coding Lovers</h2>
+        <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
+        <form method="get" action="/search" class="form-inline my-2 my-lg-0 justify-content-center pt-3">
+            <input name="query" id="query" value="{{request.GET.query}}" class="form-control mr-sm-2" type="search"
+                placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    <!--//container-->
+</section>
+
+<section class="blog-list px-3 py-5 p-md-5">
+    <div class="container">
+        <h2>Search Results: </h2>
+        {% if posts|length < 1 %}
+        <p>No search results</p>
+        Your search - <strong>{{query}}</strong> - did not match any
+        documents. <br>
+
+        Suggestions:
+        <ul>
+            <li>Make sure that all words are spelled correctly.</li>
+            <li>Try different keywords.</li>
+            <li>Try more general keywords.</li>
+            <li>Try fewer keywords.</li>
+        </ul>
+        {% endif %}
+
+
+        {% for post in posts %}
+        <br>
+        <div class="item mb-5">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="title mb-1"><a href="blog/{{post.slug}}">{{post.title}}</a></h3>
+                    <div class="meta mb-1"><span class="date">{{post.timestamp}}</span><span
+                            class="comment"><strong>{{post.author}}</strong></span></div>
+                    <div class="intro">{{post.short_desc}}...</div>
+                    <a class="more-link" href="blog/{{post.slug}}">Read more &rarr;</a>
+                </div>
+                <!--//media-body-->
+            </div>
+
+            <!--//media-->
+        </div>
+        {% endfor %}
+        <!--//item-->
+
+        <!-- Pagination -->
+
+        <!-- {% if posts.has_other_pages %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if posts.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page{{posts.previous_page_number}}{% if request.GET.query %}&query={{request.GET.query}}{% endif %}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% for num in posts.paginator.page_range %}
+                    {% if posts.number == num %}
+                <li class="page-item"><a class="page-link" href="#">{{num}}</a></li>
+                    {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{num}}{% if request.GET.query %}&query={{request.GET.query}}{% endif %}">{{num}}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if posts.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{posts.next_page_number}}{% if request.GET.query %}&query={{request.GET.query}}{% endif %}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %} -->
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                {% if posts.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page{{posts.previous_page_number}}{% if request.GET.query %}&query={{request.GET.query}}{% endif %}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              {% endif %}
+              <li class="page-item"><a class="page-link" href="#">{{posts.number}}</a></li>
+              {% if posts.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{posts.next_page_number}}{% if request.GET.query %}&query={{request.GET.query}}{% endif %}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+
+        <!-- Pagination End -->
+
+    </div>
+</section>
+
+{% endblock body %}

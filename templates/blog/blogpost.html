@@ -1,0 +1,26 @@
+{% extends 'basic.html' %}
+
+{% block title %} {{post.title}} {% endblock title %}
+
+{% block blogactive %} active {% endblock blogactive%}
+
+{% block body %}
+
+<article class="blog-post px-3 py-5 p-md-5">
+    <div class="container">
+        <header class="blog-post-header">
+            <h2 class="title mb-2">{{post.title}}</h2>
+            <div class="meta mb-3"><span class="date">{{post.timestamp}}</span><span class="comment"><strong>{{post.author}}</strong></span></div>
+        </header>
+        
+        <div class="blog-post-body">
+            
+            {{post.content|safe}}
+           
+        </div>
+                
+    </div><!--//container-->
+</article>
+
+
+{% endblock body %}
